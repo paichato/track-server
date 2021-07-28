@@ -1,0 +1,10 @@
+{
+  "name": "track-server",
+  "version": "1.0.0",
+  "description": "A web server to track users",
+  "main": "index.js",
+  "repository": "https://github.com/paichato/track-server.git",
+  "author": "Marlon Strong <tsenane14@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
