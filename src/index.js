@@ -2,7 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+const authRouthes = require("./routes/authroutes");
+
 const app = express();
+
+app.use(authRouthes);
 
 // const mongoURI =
 //   "mongodb+srv://admin:ustro777@cluster0.ahmzk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
