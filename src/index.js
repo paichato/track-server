@@ -5,10 +5,11 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 
 const authRouthes = require("./routes/authroutes");
+const requireAuth = require("./middlewares/requireAuth");
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //to get the body content
 app.use(authRouthes);
 
 // const mongoURI =
@@ -28,8 +29,9 @@ mongoose.connection.on("error", (err) => {
   console.log("Error connecting to mongo", err);
 });
 
-app.get("/", (req, res) => {
-  res.send("Hi there!");
+app.get("/", requireAuth, (req, res) => {
+  console.log(req);
+  res.send(`Your email is:${req.user}`);
 });
 
 app.listen(3000, () => {
