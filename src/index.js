@@ -5,7 +5,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 
 const authRouthes = require("./routes/authroutes");
-const requireAuth = require("./middlewares/requireAuth");
+const requireAuth = require("./");
 
 const app = express();
 
