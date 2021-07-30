@@ -18,9 +18,13 @@ module.exports = (req, res, next) => {
     const { userId } = payload;
     const user = User.findById(userId, (err, result) => {
       return (req.user = result);
-    }).then(() => {
-      next();
-    });
+    })
+      .then(() => {
+        next();
+      })
+      .catch((err) => {
+        res.send({ error: err });
+      });
     // req.user = user;
     // next();
   });
